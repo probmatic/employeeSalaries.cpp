@@ -1,0 +1,5 @@
+                Name                  ID              Salary
+          Jason Sams                1003             76000.3
+        Chris Anders                1099             65324.0
+            Yin Wang                1000             95000.5
+      Michael Deluca                1009             67343.9
