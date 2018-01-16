@@ -13,7 +13,7 @@ using namespace std;
 
 vector<employee> emps; //global vector 
 
-void loadData(string filename); // load data into a global vector of employees.
+void loadData(string filename); // load data into a global vector of employees
 void print(vector<employee> empIn); //print all the information from vector empIn 
 void GeneralReport(string filename, vector<employee> empOut); //create a report file from vector empOut
 void AboveAverage(vector<employee> empIn, vector<employee> &empOut);//find out the employee whose salary is higher than average
@@ -25,6 +25,7 @@ int main()
 
 	cout << "Please input the name of datafile:";
 	cin >> filename;
+	//filname = filname + ".txt"; need to test if this works
 	loadData(filename); //load data into global vector
 	cout << "The number of emplyee record is: " << emps.size() << endl << endl;
 	print(emps); // call print function to print out every record from record emps
@@ -34,9 +35,11 @@ int main()
 	AboveAverage(emps, empOut); // find out the employee above average salary and copy these records in vector empOut
 	cout << "Input the report name for above average:";
 	cin >> filename;
+	//filname = filname + ".txt"; need to test if this works
 	GeneralReport(filename, empOut); // create a report for above average employees
 	cout << "Input the report name after removing highest:";
 	cin >> filename;
+	//filname = filname + ".txt"; need to test if this works
 	RemoveHighestSalary(emps); // remove the employee record with higest salary
 	GeneralReport(filename, emps); //create a report 
 
@@ -54,7 +57,7 @@ void loadData(string filename)
 	employee e; //I still don't understand why we need to do this- creates a subclass? idk..
 
 
-				//cout << setw(20) << right << "Name" << setw(20) << right << "ID" << setw(20) << right << "Salary" << endl; //for debugging to see how things print out
+	//cout << setw(20) << right << "Name" << setw(20) << right << "ID" << setw(20) << right << "Salary" << endl; //for debugging to see how things print out
 
 	while (!input.eof())
 	{
@@ -62,8 +65,8 @@ void loadData(string filename)
 		input >> e.id; //id is an int
 		input >> e.salary; //salary is a double
 		input.ignore(); //Use this when using getline and cin together
-						//cout << setw(20) << e.name << setw(20) << e.id << setw(20) << fixed << setprecision(1) << e.salary << setw(20) << endl; //for debugging to make sure file is being read correctly and printed out
-		emps.push_back(e); //THIS IS HOW YOU COUNT HOW MANY THERE ARE!! AHH I FINALLY UNDERSTAND YAY
+		//cout << setw(20) << e.name << setw(20) << e.id << setw(20) << fixed << setprecision(1) << e.salary << setw(20) << endl; //for debugging to make sure file is being read correctly and printed out
+		emps.push_back(e); //How to count how many there are
 	}
 }
 
@@ -138,6 +141,7 @@ void RemoveHighestSalary(vector<employee> &empIn)
 			ihighest = i;
 		}
 	}
-	emps.erase(emps.begin() + ihighest);  //vector::erase - Deletes elements from a vector (single & range), shifts later elements down
-										  //vector::begin - Returns an iterator to start traversal of the vector.
+	emps.erase(emps.begin() + ihighest);
+	//vector::erase - Deletes elements from a vector (single & range), shifts later elements down
+	//vector::begin - Returns an iterator to start traversal of the vector.
 }
